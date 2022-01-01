@@ -82,5 +82,3 @@ def listTransactions(jsonResponse, jsonResponseCount):
         transactionsList.append(transactions)
     
     return transactionsList
-
-

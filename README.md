@@ -104,3 +104,6 @@ app.jinja_env.filters['sek'] = sek
 
 * `acccess_token` performs and api call to retrieve the `access_token` required to securely fetch transaction data from Tink API.
 * `listTransactions` is helper function that retrieves data from the jsonResponse returned from the API call.
+
+### CS50 Certificate
+<https://certificates.cs50.io/f5c524f9-78eb-49b2-aa42-17df94e26baf.pdf?size=letter>
