@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recategorise
+{% endblock %}
+
+{% block main %}
+    <form action="/recategorise" method="post">
+        <div class="form-group">
+            <select class="form-select form-select-lg mb-3" name="category">
+                <option disabled selected value="">Category</option>
+                {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <p>Recategorise individual transaction by transaction id</p>
+            <input class="form-control" autocomplete="off" name="transactionId" placeholder="Transaction ID" type="number" onkeypress="return event.charCode >= 48" min="0">
+        </div>
+        <div class="text-center">
+            <p><strong>OR</strong></p>
+        </div>
+        <div class="form-group">
+            <p>Bulk recategorise by transaction name</p>
+            <input class="form-control" autocomplete="off" name="name" placeholder="Name" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Recategorise</button>
+    </form>
+{% endblock %}

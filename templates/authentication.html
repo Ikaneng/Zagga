@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Authentication
+{% endblock %}
+
+{% block main %}
+
+<p>Tink Link to access your real bank data <a target="_blank" href="https://link.tink.com/1.0/transactions/connect-accounts/?client_id={{client_id}}&redirect_uri=https%3A%2F%2Fconsole.tink.com%2Fcallback&market=SE&locale=en_US ">Tink Link</a></p>
+
+<div class="text-center">
+    <p><strong>OR</strong></p>
+</div>
+
+<p>Tink Link to accesss Tink demo bank <a target="_blank" href="https://link.tink.com/1.0/transactions/connect-accounts/?client_id={{client_id}}&redirect_uri=https%3A%2F%2Fconsole.tink.com%2Fcallback&market=SE&locale=en_US&test=true">Tink Link</a></p>
+
+<p>Remember to copy the code returned by Tink Link into the field below. This will ensure data is fetched safely.</p>
+
+<form action="/authentication" method="post">
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="code" placeholder="Authorization code" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Get transactions</button>
+</form>
+
+{% endblock %}

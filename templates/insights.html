@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transactions
+{% endblock %}
+
+{% block main %}
+    <!-- Bootstrap class https://getbootstrap.com/docs/4.1/content/tables/ -->
+    <table class="table table-sm table-stripped">
+        <thead class="thead-light">
+            <tr>
+                <th>Start Period</th>
+                <th>End Period</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>{{ start }}</td>
+                <td>{{ end }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <br>
+    <br>
+
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Category</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for transaction in transactions %}
+
+            <tr>
+                <td>
+                    {{ transaction["category"] }}
+                </td>
+                <td>
+                    {{ sek(transaction["sum(amount)"]) }}
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+        <tfoot>
+            <tfoot>
+                <td><strong>TOTAL AMOUNT</strong></td>
+                <td><strong>{{sek(sumTransactions)}}</strong></td>
+            </tfoot>
+        </tfoot>
+    </table>
+{% endblock %}
